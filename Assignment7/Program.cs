@@ -14,6 +14,8 @@ namespace Assignment7
 
             ReverseKgroup b = new ReverseKgroup();
             b.main();
+            //Test b = new Test();
+            //b.main();
         }
     }
 }

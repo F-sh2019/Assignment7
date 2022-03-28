@@ -6,7 +6,7 @@ namespace Assignment7
 {
     class Linkedlist
     {
-        public Node head = new Node();
+        public Node head ;
 
         public void insert(int new_data)
         {

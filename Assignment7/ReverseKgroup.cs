@@ -6,63 +6,54 @@ namespace Assignment7
 {
     class ReverseKgroup
     {
-        public Linkedlist ReverseKGroup(Linkedlist LL, int k)
+        public Node ReverseKGroup(Node head, int k)
         {
 
-            Node n = LL.head;
-            int step = 1;
-            Node CurrentNode = LL.head;
-            Node FirstNode = LL.head;
-            Node Nextnode = LL.head;
+            if (head == null)
+                return null;
+            int Count = 0;
+            Node Current = head;
+
+            Node Next = null;
             Node Prev = null;
-           
-            int i = 0;
-            while (CurrentNode.next != null)
+
+         
+
+            while (Count < k && Current != null)
             {
-                while (step != k && CurrentNode.next != null)
-                {
-                    if (step == 1) FirstNode = CurrentNode;
-
-                    
-                    Nextnode = CurrentNode.next;
-                   
-                    CurrentNode.next = Prev;
-                   
-                    Prev = CurrentNode;
-
-                    CurrentNode = Nextnode;
-                   
-                    step++;
-
-                }
 
 
+                Next = Current.next;
 
+                Current.next = Prev;
 
-                step = 1;
-                FirstNode.next = CurrentNode.next;
-                FirstNode = CurrentNode;
-                if (i == 0) LL.head = FirstNode;
-                i++;
-                LL.PrintList(LL);
+                Prev = Current;
+
+                Current = Next;
+
+                Count++;
 
             }
 
-            return LL;
+            if (Next != null)
+                head.next = ReverseKGroup(Next, k);
+
+            return Prev;
+
         }
 
         public void main()
         {
             Linkedlist LL = new Linkedlist();
 
-            for (int i = 3; i > 0; i --)
+            for (int i = 9; i > 0; i --)
             {
                 LL.insert(i);
 
             }
 
             LL.PrintList(LL);
-            ReverseKGroup(LL, 3);
+            LL.head=ReverseKGroup(LL.head, 3);
             LL.PrintList(LL);
             //RotatingClockwise(4, LL);
         }
