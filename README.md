@@ -54,4 +54,5 @@ https://youtu.be/zCPoBndNR6E
 
 10. Given a singly linked list of integers, Your task is to complete the function isPalindrome that returns true if the given list is palindrome, else returns false.
 
+https://youtu.be/pyFh8WOiUOI
 
