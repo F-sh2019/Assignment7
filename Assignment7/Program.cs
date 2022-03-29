@@ -7,15 +7,26 @@ namespace Assignment7
         static void Main(string[] args)
         {
             //FindingLLMiddle FM = new FindingLLMiddle();
-            //FM.main();
+
 
             //RotatingKClockwise b = new RotatingKClockwise() ;
-            //b.main();
 
-            ReverseKgroup b = new ReverseKgroup();
-            b.main();
+
+            //ReverseKgroup b = new ReverseKgroup();
+
             //Test b = new Test();
-            //b.main();
+
+            //FindingLoopinLL b = new FindingLoopinLL();
+
+            //FindNthfromend b = new FindNthfromend();
+
+            // MergTwoSortedLL b = new MergTwoSortedLL();
+            // Flattering.List b = new Flattering.List();
+            // SwapPair b = new SwapPair();
+            //  AddTwoLists b = new AddTwoLists();
+
+            PalindromicLL b = new PalindromicLL();
+            b.main();
         }
     }
 }
