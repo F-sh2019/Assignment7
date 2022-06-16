@@ -1,5 +1,5 @@
 # Assignment7
-KalAcademy - Assignment6 This assignment contains writing algorithms and making descriptive videos for the algorithems which is accessible through this file, and also this repository includes all the implemented algorithms:
+KalAcademy - Assignment7 This assignment contains writing algorithms and making descriptive videos for the algorithems which is accessible through this file, and also this repository includes all the implemented algorithms:
 
 1- Given a singly linked list, find middle of the linked list. 
 
