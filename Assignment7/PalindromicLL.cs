@@ -60,6 +60,8 @@ namespace Assignment7
 					prev_of_slow_ptr.next = second_half;
 			}
 			return res;
+
+			
 		}
 
 		void reverse()
@@ -101,10 +103,14 @@ namespace Assignment7
 		
 			return false;
 		}
-
 		
 		public  void main()
 		{
+
+			
+
+
+
 
 			/* Start with the empty list */
 			Linkedlist llist = new Linkedlist();
