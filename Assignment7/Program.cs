@@ -1376,31 +1376,27 @@ namespace Assignment7
                 else
                 {
 
-                    
+                    int m = MyDic[c];
+                    int Len = 0;
+                    foreach (KeyValuePair<char, int> K in MyDic)
+                    {
 
-                        //max = MyDic.Count();
-
-                        int m = MyDic[c];
-                        int Len = 0;
-                        foreach (KeyValuePair<char, int> K in MyDic)
+                        if (K.Value <= m)
                         {
-
-                            if (K.Value <= m)
-                            {
-                                MyDic.Remove(K.Key);
+                            MyDic.Remove(K.Key);
                             Len++;
-                            }
+                        }
                               
 
-                        }
-
-                    if (Len > max) {
-                        max = Len;
                     }
 
+                if (Len > max) {
+                    max = Len;
+                }
 
 
-                        MyDic.Add(c, 1);
+
+                    MyDic.Add(c, 1);
                     
                   
                 }
@@ -2305,10 +2301,71 @@ namespace Assignment7
             return s;
 
         }
-    
 
-    static void Main(string[] args)
+
+        static int LengthOfLongestSubstring1(string s)
         {
+            if (s == null || s == String.Empty)
+                return 0;
+
+            HashSet<char> set = new HashSet<char>();
+            int currentMax = 0,
+                i = 0,
+                j = 0;
+
+            while (j < s.Length)
+                if (!set.Contains(s[j]))
+                {
+                    set.Add(s[j]);
+                    j++;
+                    currentMax = Math.Max(currentMax, j - i);
+                }
+                else
+                {
+                    set.Remove(s[i]);
+                    i++;
+                }
+
+            return currentMax;
+        }
+        static int[] Intersect1(int[] nums1, int[] nums2)
+        {
+
+
+            var res = new List<int>();
+            var dict = new Dictionary<int, int>();
+            foreach (var n1 in nums1)
+            {
+                if (!dict.ContainsKey(n1))
+                    dict.Add(n1, 0);
+                dict[n1]++;
+            }
+
+            foreach (var n2 in nums2)
+            {
+                if (dict.ContainsKey(n2) && dict[n2] > 0)
+                {
+                    res.Add(n2);
+                    dict[n2]--;
+                }
+            }
+            return res.ToArray();
+
+            long h = 0;
+             
+
+        }
+        static void Main(string[] args)
+        {
+
+            int[] num1 = { 1, 2, 3, 4, 0, 0 };
+            int[] num2 = { 1, 2, 4, 1 };
+
+            int[] numintersect = Intersect1(num1, num2);
+
+
+
+            int lensub = LengthOfLongestSubstring1("PWWKEP");
 
 
             IList<IList<int>> n = ThreeSum(new int[]{-4,-1,-1,0,2,1 });
@@ -2318,9 +2375,7 @@ namespace Assignment7
             bool chi = IsValids("()");
 
 
-            int[] num1 = { 1, 2, 3, 0, 0, 0 };
-            int[] num2 = { 6, 7, 8, };
-
+           
             MergeArray2(num1, 3, num2, 3);
 
 
