@@ -164,7 +164,7 @@ namespace Assignment7
             int[] Res = new int[n + 1];
 
             string a = "";
-            int num;
+            
             int carry = 1;
             for (int i = n - 1; i >= 0; i--)
             {
@@ -2351,15 +2351,68 @@ namespace Assignment7
             }
             return res.ToArray();
 
-            long h = 0;
-             
 
+
+
+
+        }
+
+        static int[] PlusOne1(int[] digits)
+        {
+
+
+
+
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                if (digits[i] < 9)
+                {
+                    digits[i]++;
+                    return digits;
+                }
+                digits[i] = 0;
+            }
+            int[] result = new int[digits.Length + 1];
+            result[0] = 1;
+            return result;
+
+        }
+
+        static bool IncreasingTriplet(int[] nums)
+        {
+            if (nums.Length < 3)
+                return false;
+
+            int minIndex = Int32.MinValue;
+            int midIndex = Int32.MinValue;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int currentNumber = nums[i];
+
+                if ((midIndex != Int32.MinValue) && (currentNumber > nums[midIndex]))
+                    return true;
+
+                if ((minIndex == Int32.MinValue) || (currentNumber < nums[minIndex]))
+                    minIndex = i;
+
+                if (currentNumber > nums[minIndex])
+                    midIndex = i;
+            }
+
+            return false;
         }
         static void Main(string[] args)
         {
 
+
+
             int[] num1 = { 1, 2, 3, 4, 0, 0 };
-            int[] num2 = { 1, 2, 4, 1 };
+            int[] num2 = {9,9,9 };
+
+
+            bool istrue = IncreasingTriplet(num1);
+             num2 = PlusOne1(num2);
 
             int[] numintersect = Intersect1(num1, num2);
 
