@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Assignment7
 {
@@ -114,7 +115,7 @@ namespace Assignment7
         static int[] RotateArray2(int[] nums, int k)
         {
             int n = nums.Length;
-         
+
             k %= n;
 
             k = n - k;
@@ -144,7 +145,7 @@ namespace Assignment7
             }
             for (int i = n - k; i > 0; i--)
             {
-                nums[i + k - 1] = nums[i-1];
+                nums[i + k - 1] = nums[i - 1];
 
             }
             j = 0;
@@ -164,12 +165,12 @@ namespace Assignment7
             int[] Res = new int[n + 1];
 
             string a = "";
-            
+
             int carry = 1;
             for (int i = n - 1; i >= 0; i--)
             {
 
-                a =  (digits[i] + carry)+a;
+                a = (digits[i] + carry) + a;
                 if (digits[i] == 9)
                 {
                     carry = 1;
@@ -188,78 +189,78 @@ namespace Assignment7
                 a = "1" + a;
 
             }
-                int[] R = new int[a.Length];
+            int[] R = new int[a.Length];
 
-                for (int i = 0; i < a.Length; i++)
-                {
+            for (int i = 0; i < a.Length; i++)
+            {
 
-                    R[i] = a[i];
-
-                }
-                return R;
-           
-                //int carry = 0;
-                //for (int i = n - 1 ; i >= 0 ; i--)
-                //{
-
-                //    Res[i] = digits[i] + carry;
-                //    if (digits[i] > 9)
-                //    {
-                //        carry = 1;
-                //    }
-                //    else
-                //    {
-                //        carry = 0;
-                //    }
-
-                //}
-                //Convert.ToString
-                //if (carry == 1)
-                //{
-                //    for (int i = n; i >= 0; i++)
-                //    {
-                //        Res[i + 1] = Res[i];
-
-                //    }
-                //    Res[0] = carry;
-
-
-                //}
-                //else {
-                //    Array.Copy(Res, digits, n);
-                //}
-                //return Res;
-
-
-
-
-                //for (int i = 0; i<n; i++)
-                //{
-                //    res = res * 10 + digits[i];//* Math.Pow( 10 , (n - i - 1));
-
-                //}
-
-                //res++;
-
-                //n = res.ToString().Length;
-                //int[] ArrRes = new int[n];
-                //int count = 0;
-
-
-
-                //for (int i = n - 1; i >= 0; i--)
-                //{
-
-                //    ArrRes[i] = Convert.ToInt32( res % 10);
-                //    res =(res / 10);
-
-
-
-                //}
-
-                //return ArrRes;
+                R[i] = a[i];
 
             }
+            return R;
+
+            //int carry = 0;
+            //for (int i = n - 1 ; i >= 0 ; i--)
+            //{
+
+            //    Res[i] = digits[i] + carry;
+            //    if (digits[i] > 9)
+            //    {
+            //        carry = 1;
+            //    }
+            //    else
+            //    {
+            //        carry = 0;
+            //    }
+
+            //}
+            //Convert.ToString
+            //if (carry == 1)
+            //{
+            //    for (int i = n; i >= 0; i++)
+            //    {
+            //        Res[i + 1] = Res[i];
+
+            //    }
+            //    Res[0] = carry;
+
+
+            //}
+            //else {
+            //    Array.Copy(Res, digits, n);
+            //}
+            //return Res;
+
+
+
+
+            //for (int i = 0; i<n; i++)
+            //{
+            //    res = res * 10 + digits[i];//* Math.Pow( 10 , (n - i - 1));
+
+            //}
+
+            //res++;
+
+            //n = res.ToString().Length;
+            //int[] ArrRes = new int[n];
+            //int count = 0;
+
+
+
+            //for (int i = n - 1; i >= 0; i--)
+            //{
+
+            //    ArrRes[i] = Convert.ToInt32( res % 10);
+            //    res =(res / 10);
+
+
+
+            //}
+
+            //return ArrRes;
+
+        }
 
 
         static IList<int> AddToArrayForm(int[] num, int k)
@@ -294,7 +295,7 @@ namespace Assignment7
 
             if (carry == 1)
             {
-                Array.Copy(num,R, num.Length);
+                Array.Copy(num, R, num.Length);
                 R[0] = 1;
                 return R;
 
@@ -302,48 +303,48 @@ namespace Assignment7
             return num;
         }
 
-            static int[] TwoSum(int[] nums, int target)
+        static int[] TwoSum(int[] nums, int target)
         {
-         
+
             int n = nums.Length;
             int Result = 0;
             int Sindex = 0;
             int[] Twosum = new int[2];
 
-            
 
-            Dictionary<int, int > aList = new Dictionary<int, int > ();
+
+            Dictionary<int, int> aList = new Dictionary<int, int>();
 
             for (int i = 0; i < n; i++)
             {
                 aList.Add(i, nums[i]);
             }
 
-           for (int i = 0; i < nums.Length; i++)
-           
+            for (int i = 0; i < nums.Length; i++)
+
             {
                 if (aList.ContainsValue(target - nums[i]))
                 {
-                     aList.TryGetValue(target - nums[i], out Sindex);
+                    aList.TryGetValue(target - nums[i], out Sindex);
                     //aList.TryGetKey(target - nums[i], out Sindex);
 
-                    var a=aList.FirstOrDefault(x => x.Value == target - nums[i] ).Key;
+                    var a = aList.FirstOrDefault(x => x.Value == target - nums[i]).Key;
 
                     //if ( != i)
                     //{
-                        Twosum[0] = i;
-                       // Twosum[1] = a. aList[a];
-                        break;
+                    Twosum[0] = i;
+                    // Twosum[1] = a. aList[a];
+                    break;
                     //}
 
-                }   
-                        
-                        
-                       
+                }
+
+
+
 
 
             }
-            
+
             return Twosum;
 
 
@@ -361,8 +362,8 @@ namespace Assignment7
                 var index = 0;
                 if (complement >= 0 && numsDictionary.TryGetValue(complement, out index))
                 {
-                   
-                        return new int[] { index, i };
+
+                    return new int[] { index, i };
                 }
 
                 if (numsDictionary.ContainsKey(nums[i]) == false)
@@ -379,19 +380,19 @@ namespace Assignment7
 
             string s = x.ToString();
             int n = s.Length;
-            string a="";
+            string a = "";
             bool IsNegative = false;
-            int minlen=0;
+            int minlen = 0;
 
             if (s[0] == '-')
             {
                 IsNegative = true;
-                 minlen = 1;
+                minlen = 1;
             }
 
-            for (int i = n - 1; i >= minlen ; i--)
+            for (int i = n - 1; i >= minlen; i--)
             {
-                a += s[i]  ;
+                a += s[i];
 
             }
 
@@ -428,7 +429,7 @@ namespace Assignment7
 
                     SWord[mykey] = '0';
                 }
-                
+
 
             }
             Dictionary<int, char>.KeyCollection Keys = SWord.Keys;
@@ -455,11 +456,11 @@ namespace Assignment7
             return R;
         }
 
-        static int[]  Intersect(int[] nums1, int[] nums2)
+        static int[] Intersect(int[] nums1, int[] nums2)
         {
 
 
-            int[] Re = new int[nums1.Length+ nums2.Length];
+            int[] Re = new int[nums1.Length + nums2.Length];
 
             Dictionary<int, int> M1 = new Dictionary<int, int>();
 
@@ -511,7 +512,7 @@ namespace Assignment7
 
 
             bool flag = false;
-            
+
             string s1 = "";
 
             s = s.Trim();
@@ -553,7 +554,7 @@ namespace Assignment7
         static int MyAtoi1(string s)
         {
 
-            
+
 
             s = s.Trim(' ');
             int n = s.Length;
@@ -561,7 +562,7 @@ namespace Assignment7
 
             for (int i = 0; i < n; i++)
             {
-              
+
                 if ((s[i] == '-' || s[i] == '+'))
                     r = s[i].ToString();
                 else if (Char.IsDigit(s[i])) r = r + s[i].ToString();
@@ -594,7 +595,7 @@ namespace Assignment7
                 if (haystack[i] == needle[0] && i < haystack.Length)
                 {
                     Fpos = i;
-                    while ( i < haystack.Length && pos < needle.Length && haystack[i] == needle[pos] )
+                    while (i < haystack.Length && pos < needle.Length && haystack[i] == needle[pos])
                     {
                         i++;
                         pos++;
@@ -676,9 +677,9 @@ namespace Assignment7
 
             for (int j = 0; j < min; j++)
             {
-                
-                    for (int i = 0; i < n; i++)
-                    {
+
+                for (int i = 0; i < n; i++)
+                {
                     if (flag)
                     {
                         string d = strs[i];
@@ -689,10 +690,10 @@ namespace Assignment7
                             flag = false;
                         }
                     }
-                    }
-                    if (flag)
-                        prefix = prefix + least[j];
-               
+                }
+                if (flag)
+                    prefix = prefix + least[j];
+
             }
 
             return prefix;
@@ -701,13 +702,13 @@ namespace Assignment7
 
         static int BaseballScore(string[] ops)
         {
-            
 
-                Stack<int> f1 = new Stack<int>();
+
+            Stack<int> f1 = new Stack<int>();
 
             int y = 0;
-                foreach (string w in ops)
-                {
+            foreach (string w in ops)
+            {
                 if (w == "C")
                 {
                     f1.Pop();
@@ -724,19 +725,19 @@ namespace Assignment7
                     f1.Push(g + ss);
                 }
                 else if (int.TryParse(w, out y))
-                  {
+                {
                     f1.Push(y);
                 }
-                }
+            }
 
-                int c = 0;
-                while (f1.Count >0)
-                {
-                    c = f1.Pop() + c;
-                }
+            int c = 0;
+            while (f1.Count > 0)
+            {
+                c = f1.Pop() + c;
+            }
 
-                return c;
-            
+            return c;
+
 
         }
 
@@ -867,7 +868,7 @@ namespace Assignment7
         }
 
 
-        static  bool IsPalindrome(ListNode head)
+        static bool IsPalindrome(ListNode head)
         {
 
             ListNode Temphead = head;
@@ -901,7 +902,7 @@ namespace Assignment7
                 Current = Next;
             }
 
-            SecondHalf =Prev;
+            SecondHalf = Prev;
 
             Temphead = head;
             Counter = 1;
@@ -925,17 +926,24 @@ namespace Assignment7
 
 
 
+            //if (root == null)
+            //    return 0;
+
+
+            //int ldepth = maxdepth(root.left);
+            //int rdepth = maxdepth(root.right);
+
+            //if (ldepth > rdepth)
+            //    return (ldepth + 1);
+            //else
+            //    return (rdepth + 1);
+
             if (root == null)
                 return 0;
 
+            //return (MaxDepth(root.left));
 
-            int Ldepth = MaxDepth(root.left);
-            int Rdepth = MaxDepth(root.right);
-
-            if (Ldepth > Rdepth)
-                return (Ldepth + 1);
-            else
-                return (Rdepth + 1);
+            return (Math.Max(MaxDepth(root.left), MaxDepth(root.right))) + 1;
 
         }
 
@@ -960,7 +968,7 @@ namespace Assignment7
 
             return isBSTUtil(root, int.MinValue, int.MaxValue);
         }
-       static bool isBSTUtil(TreeNode node, int min, int max)
+        static bool isBSTUtil(TreeNode node, int min, int max)
         {
             /* an empty tree is BST */
             if (node == null)
@@ -981,25 +989,37 @@ namespace Assignment7
         }
 
 
-        public int majorityElement(List<int> A)
+        static int majorityElement(List<int> A)
         {
 
-            Dictionary<int, int> MyDic = new Dictionary<int, int>();
-            int n = A.Count / 2;
-            foreach (int b in A)
-            {
-                if (MyDic.ContainsKey(b))
-                {
-                    MyDic[b] ++;
-                }
-                else
-                {
-                    MyDic.Add(b, 1);
-                }
+            /* Dictionary<int, int> MyDic = new Dictionary<int, int>();
+             int n = A.Count / 2;
+             foreach (int b in A)
+             {
+                 if (MyDic.ContainsKey(b))
+                 {
+                     MyDic[b]++;
+                 }
+                 else
+                 {
+                     MyDic.Add(b, 1);
+                 }
 
+             }
+             if (MyDic.ContainsValue(n))
+             return 1;
+             return -1;*/
+            int count = 0;
+            int? candidate = null;
+
+            foreach (int num in A)
+            {
+                if (count == 0) candidate = num;
+                count += (num == candidate) ? 1 : -1;
+                if (count > A.Count / 2) return candidate.Value;
             }
-            //if (MyDic.ContainsValue(n))
-                return 1;
+
+            return candidate.Value;
         }
         static void Merge(int[] nums1, int m1, int[] nums2, int n1)
         {
@@ -1113,7 +1133,7 @@ namespace Assignment7
         }
 
 
-         static void ReverseString1(string str)
+        static void ReverseString1(string str)
         {
             char[] charArray = str.ToCharArray();
             for (int i = 0, j = str.Length - 1; i < j; i++, j--)
@@ -1187,7 +1207,7 @@ namespace Assignment7
             if (mid == start)
                 return mid + 1;
             if (mid == n)
-                return mid ;
+                return mid;
             return mid;
 
 
@@ -1197,7 +1217,7 @@ namespace Assignment7
 
             int carry = 0;
             Node L3 = null;
-            Node Temp=null;
+            Node Temp = null;
             Node L1Node = l1;
             Node L2Node = l2;
 
@@ -1208,7 +1228,7 @@ namespace Assignment7
 
                 Node Node1 = new Node((L1Node.value + L2Node.value + carry) % 10);
                 carry = (L1Node.value + L2Node.value + carry) / 10;
-                 
+
                 if (L3 == null)
                     L3 = Node1;
                 else
@@ -1224,9 +1244,9 @@ namespace Assignment7
             if (L1Node != null)
                 while (L1Node != null)
                 {
-                    
+
                     carry = (L1Node.value + carry) / 10;
-                    
+
                     Node Node1 = new Node((L1Node.value + carry) % 10);
                     L3.next = Node1;
                     L1Node = L1Node.next;
@@ -1237,7 +1257,7 @@ namespace Assignment7
                     ListNode Node = new ListNode();
                     carry = (L2Node.value + carry) / 10;
                     Node Node1 = new Node((L2Node.value + carry) % 10);
-                    
+
                     L3.next = Node1;
                     L2Node = L2Node.next;
                 }
@@ -1254,13 +1274,13 @@ namespace Assignment7
             for (int i = 0; i <= nums.Length; i++)
             {
                 if (MP.ContainsKey(nums[i]) == false)
-                    MP.Add(nums[i],0);
+                    MP.Add(nums[i], 0);
                 else
                     return false;
             }
 
             return true;
-        } 
+        }
         static bool IsValidSudoku(char[][] board)
         {
 
@@ -1307,7 +1327,7 @@ namespace Assignment7
             for (int i = 1; i < nums.Length; i++)
             {
                 if (nums[k] != nums[i])
-                
+
                 {
                     k++;
                     nums[k] = nums[i];
@@ -1344,8 +1364,8 @@ namespace Assignment7
                 else
                 {
                     sum += prices[i] - prices[k];
-                    if (i+1 < n)
-                        k = i+1;
+                    if (i + 1 < n)
+                        k = i + 1;
                     //i++;
                 }
             }
@@ -1386,19 +1406,19 @@ namespace Assignment7
                             MyDic.Remove(K.Key);
                             Len++;
                         }
-                              
+
 
                     }
 
-                if (Len > max) {
-                    max = Len;
-                }
+                    if (Len > max) {
+                        max = Len;
+                    }
 
 
 
                     MyDic.Add(c, 1);
-                    
-                  
+
+
                 }
                 i++;
             }
@@ -1416,55 +1436,55 @@ namespace Assignment7
         static bool IsIsomorphic(string s, string t)
         {
 
-                if (String.IsNullOrEmpty(s) || String.IsNullOrEmpty(t))
-                    return true;
+            if (String.IsNullOrEmpty(s) || String.IsNullOrEmpty(t))
+                return true;
 
 
-                if (s.Length != t.Length)
+            if (s.Length != t.Length)
+                return false;
+
+
+
+            Dictionary<char, char> MyDic = new Dictionary<char, char>();
+
+
+
+
+            char map;
+            char[] r = t.ToArray();
+
+            int j = 0;
+
+
+
+            while (j < s.Length)
+            {
+
+                map = r[j];
+
+                if (MyDic.ContainsKey(r[j]))
+
+                    map = MyDic[r[j]];
+
+                else if (!MyDic.ContainsKey(r[j]) && !MyDic.ContainsValue(s[j]))
+                {
+                    //var k =MyDic.FirstOrDefault(x => x.Value == 0).Key;
+
+                    MyDic.Add(r[j], s[j]);
+                    map = s[j];
+
+                }
+                else if (!MyDic.ContainsKey(r[j]) && MyDic.ContainsValue(s[j]))
+
                     return false;
 
 
 
-                Dictionary<char, char> MyDic = new Dictionary<char, char>();
-
-
-
-
-                char map;
-                char[] r = t.ToArray();
-
-                int j = 0;
-
-
-
-                while (j < s.Length)
-                {
-
-                    map = r[j];
-
-                    if (MyDic.ContainsKey(r[j]))
-
-                        map = MyDic[r[j]];
-
-                    else if (!MyDic.ContainsKey(r[j]) && !MyDic.ContainsValue(s[j]))
-                    {
-                    //var k =MyDic.FirstOrDefault(x => x.Value == 0).Key;
-
-                        MyDic.Add(r[j], s[j]);
-                        map = s[j];
-
-                    }
-                    else if (!MyDic.ContainsKey(r[j]) && MyDic.ContainsValue(s[j]))
-
-                        return false;
-
-
-
                 r[j] = map;
-                  
-                
+
+
                 //for (int i = j; i < r.Length; i++)
-                    //{
+                //{
 
                 //    if (r[i] == map)
                 //    {
@@ -1480,22 +1500,22 @@ namespace Assignment7
 
 
             }
-                string f = r.ToString();
-                //for (int i = 0; i < r.Length; i++)
-                //{
+            string f = r.ToString();
+            //for (int i = 0; i < r.Length; i++)
+            //{
 
-                //    f += r[i];
-                //}
-
-
-                if (f == s)
-
-                    return true;
-                else
-                    return false;
+            //    f += r[i];
+            //}
 
 
-           
+            if (f == s)
+
+                return true;
+            else
+                return false;
+
+
+
 
 
         }
@@ -1533,7 +1553,7 @@ namespace Assignment7
 
         }
 
-        static void  splitcharacter()
+        static void splitcharacter()
         {
             // This example demonstrates the String.Split() methods that use
             // the StringSplitOptions enumeration.
@@ -1674,7 +1694,7 @@ namespace Assignment7
             */
         }
 
-        static  IList<int> InorderTraversal(TreeNode root)
+        static IList<int> InorderTraversal(TreeNode root)
         {
 
             Stack<TreeNode> s = new Stack<TreeNode>();
@@ -1691,7 +1711,7 @@ namespace Assignment7
                     r = r.left;
                 }
 
-               
+
 
 
                 r = s.Pop();
@@ -1729,7 +1749,7 @@ namespace Assignment7
 
 
 
-                   
+
                     if (upperhalf.val > Temp.val)
                     {
 
@@ -1740,11 +1760,11 @@ namespace Assignment7
                     else
                     {
 
-                        while (upperhalf.val < Temp.val && upperhalf.next != null  && upperhalf.next.val < Temp.val)
+                        while (upperhalf.val < Temp.val && upperhalf.next != null && upperhalf.next.val < Temp.val)
                         {
-                            
-                                
-                                upperhalf = upperhalf.next;
+
+
+                            upperhalf = upperhalf.next;
 
                         }
                         node.next = Temp.next;
@@ -1813,9 +1833,9 @@ namespace Assignment7
             //    output[k] = nco[u, 0];
             //    k++;
 
-        //    return output;
-        //}
-        int[] output = new int[queries.Length];
+            //    return output;
+            //}
+            int[] output = new int[queries.Length];
 
             int[] nc = new int[nums.Length];
             int[] nco = new int[nums.Length];
@@ -1852,8 +1872,8 @@ namespace Assignment7
                     //nco[i] = nc[count[nc[i] - min] - 1];
                     //nco[i] = nc[count[nc[i] - min] - 1];
                     nco[count[nc[i] - min] - 1] = nc[i];
-                   
-                
+
+
                     if (count[nc[i] - min] - 1 == u - 1)
                     {
                         output[k] = i;
@@ -1882,26 +1902,26 @@ namespace Assignment7
             else
                 return true;
 
-        
+
         }
 
         static double CTOF(double degree)
         {
-            return  ((degree * 9) / 5) + 32;
-        
+            return ((degree * 9) / 5) + 32;
+
         }
 
         static string Reversestring(string g)
         {
-            string R=String.Empty ;
+            string R = String.Empty;
             for (int i = g.Length - 1; i >= 0; i--)
             {
-                R += g[i] ;
+                R += g[i];
             }
             return R;
         }
 
-        static int SumOfDigit(int num )
+        static int SumOfDigit(int num)
         {
             if (num > 0)
             {
@@ -1911,16 +1931,16 @@ namespace Assignment7
                 return 0;
         }
 
-        static char  LowerorUpper(char a)
+        static char LowerorUpper(char a)
         {
-            int c= (int)a ;
+            int c = (int)a;
 
             if (c >= 67 && c <= 90)
-                a=char.ToUpper(a);
+                a = char.ToUpper(a);
             else if (c >= 97 && c <= 122)
-                a=char.ToLower(a);
+                a = char.ToLower(a);
 
-            return a ;
+            return a;
         }
 
 
@@ -1928,9 +1948,9 @@ namespace Assignment7
         {
             int[][] a = new int[3][];
 
-            a[0] = new int[2] { 1,2 };
+            a[0] = new int[2] { 1, 2 };
             a[1] = new int[1] { 10 };
-            a[2] = new int[5] { 11,12,13,14,15 };
+            a[2] = new int[5] { 11, 12, 13, 14, 15 };
 
 
 
@@ -1941,9 +1961,9 @@ namespace Assignment7
                 for (int j = 0; j < b.Length; j++)
                 {
                     Console.WriteLine(b[j]);
-                   
+
                 }
-               
+
             }
             Console.WriteLine("The array dimension rank is {0} ", a.Rank);
 
@@ -1952,8 +1972,8 @@ namespace Assignment7
             Console.Write(a.GetUpperBound(1));
             //    Console.Write(a.GetLowerBound(2));
 
-        
-        
+
+
         }
 
         public static void FindObject(Array array, Object o)
@@ -1986,7 +2006,7 @@ namespace Assignment7
             Console.WriteLine(str1.Length);
 
 
-            int s3=string.Compare(str2, str1);
+            int s3 = string.Compare(str2, str1);
 
             long count = 0;
             int start = 0;
@@ -2015,14 +2035,14 @@ namespace Assignment7
             var Grp = from i in Enumerable.Range(0, email.Length)
                       group email[i] by i / 3;
             foreach (var mail in Grp)
-               string.Join(";", mail.ToArray());
+                string.Join(";", mail.ToArray());
 
 
             Console.WriteLine();
 
         }
 
-        static void abbre( string str)
+        static void abbre(string str)
         {
             char[] c, result;
             int j = 0;
@@ -2040,7 +2060,7 @@ namespace Assignment7
                     result[j++] = '.';
                 }
             }
-            
+
             Console.Write("The Abbreviation for {0} is ", str);
             Console.WriteLine(result);
             Console.ReadLine();
@@ -2055,16 +2075,16 @@ namespace Assignment7
             {
                 for (int i = 0; i < s.Length; i++)
                 {
-                   
+
                     if (i + j <= s.Length)
                     {
                         l.Add(s.Substring(i, j));
-                     //   i = i + j;
+                        //   i = i + j;
                     }
-                    
+
                 }
                 j++;
-            
+
             }
 
             List<string> a = new List<string>();
@@ -2073,7 +2093,7 @@ namespace Assignment7
                 for (j = 0; j <= s.Length - i; j++)
                 {
                     string substring = s.Substring(j, i);
-                    a.Add( substring);
+                    a.Add(substring);
                     Console.WriteLine(a[j]);
                 }
             }
@@ -2084,7 +2104,7 @@ namespace Assignment7
         static bool IsValidSudoku1(char[,] board)
         {
 
-            Dictionary<int,int>  Valid= new Dictionary<int, int>();
+            Dictionary<int, int> Valid = new Dictionary<int, int>();
 
 
             for (int i = 0; i < 9; i++)
@@ -2127,18 +2147,18 @@ namespace Assignment7
                 for (int j = 0; j < 9 - 2; j += 3)
                 {
 
-                   // for (int j = m; j < 3+m; j++)
+                    // for (int j = m; j < 3+m; j++)
                     //{
-                        if (Convert.ToInt32(board[i, j]) != '.')
-                        {
-                            if (Valid.ContainsKey(Convert.ToInt32(board[i, j])))
-                                return false;
-                            Valid.Add(Convert.ToInt32(board[i, j]), 0);
-                        }
+                    if (Convert.ToInt32(board[i, j]) != '.')
+                    {
+                        if (Valid.ContainsKey(Convert.ToInt32(board[i, j])))
+                            return false;
+                        Valid.Add(Convert.ToInt32(board[i, j]), 0);
+                    }
                     //}
 
                 }
-              //  m = m + 3;
+                //  m = m + 3;
                 Valid.Clear();
             }
 
@@ -2195,7 +2215,7 @@ namespace Assignment7
                 else
                 {
                     // Console.WriteLine(nums2[j] );
-                    nums1[k] = nums2[j ];
+                    nums1[k] = nums2[j];
                     //    Console.WriteLine(nums1[k] );
                 }
 
@@ -2207,7 +2227,7 @@ namespace Assignment7
                 nums1[k--] = nums2[j--];
             }
         }
-         static bool  IsValids(string s)
+        static bool IsValids(string s)
         {
             //Stack<char> sign = new Stack<char>();
 
@@ -2276,13 +2296,13 @@ namespace Assignment7
 
             Array.Sort(nums);
 
-            for (int i = 0; i < nums.Length ; i++)
+            for (int i = 0; i < nums.Length; i++)
                 m.Add(i, nums[i]);
 
             int l = 0;
             int sum = 0;
 
-            for (int i = l; i < nums.Length - 1  ; i++)
+            for (int i = l; i < nums.Length - 1; i++)
             {
                 Console.WriteLine("i is {0}", l);
                 sum = nums[i] + nums[i + 1];
@@ -2402,10 +2422,864 @@ namespace Assignment7
 
             return false;
         }
-        static void Main(string[] args)
+
+        static string LongestPalindrome1(string s)
+        {
+
+            if (s == "" || s.Length <= 1)
+                return s;
+
+
+            int length = 0, start = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                int evenLength = PalindromeLength(s, i, i + 1);
+                int oddLength = PalindromeLength(s, i, i);
+                int currentLength = Math.Max(evenLength, oddLength);
+
+                if (currentLength > length)
+                {
+                    length = currentLength;
+                    start = i - (length - 1) / 2;
+                }
+            }
+
+            return s.Substring(start, length);
+        }
+
+        static int PalindromeLength(string s, int left, int right)
+        {
+            while (left >= 0 && right < s.Length && s[left] == s[right])
+            {
+                left--;
+                right++;
+            }
+            return right - left - 1; // (right+1) - (left-1) - 1
+        }
+
+        static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
 
 
+            ListNode prenode = new ListNode();
+            ListNode l3 = prenode;
+
+            int val = 0;
+
+            while (l1 != null || l2 != null || val != 0)
+            {
+                if (l1 != null)
+                {
+                    val += l1.val;
+                    l1 = l1.next;
+                }
+                if (l2 != null)
+                {
+                    val += l2.val;
+                    l2 = l2.next;
+                }
+
+
+
+                prenode.next = new ListNode(val % 10);
+                val = val / 10;
+                prenode = prenode.next;
+            }
+            return l3.next;
+        }
+
+
+
+        static ListNode OddEvenList(ListNode head)
+        {
+
+            if (head == null) return null;
+            long EvenCount = 0;
+            ListNode l = head;
+
+            while (l != null)
+            {
+                EvenCount++;
+                l = l.next;
+            }
+
+
+
+            if (EvenCount / 2 == 1)
+                EvenCount /= 2 + 1;
+            else
+                EvenCount /= 2;
+
+
+
+            Console.WriteLine("EvenCount{0}", EvenCount);
+            long count = 0;
+            l = head.next;
+            ListNode m = l;
+            while (count < EvenCount & m != null)
+            {
+                //Console.WriteLine("l value{0}",l.val ) ;
+                l = m;
+                while (l != null && l.next != null)
+                {
+                    int val = l.val;
+                    l.val = l.next.val;
+                    l.next.val = val;
+                    l = l.next;
+                    Console.WriteLine("l value{0}", l.val);
+                }
+                Console.WriteLine("m value{0}", m.val);
+                m = m.next;
+                count++;
+
+            }
+
+            // head.next= l;
+            return head;
+
+        }
+        static ListNode GetIntersectionNode(ListNode headA, ListNode headB)
+        {
+            ListNode refHead_A = headA, refHead_B = headB;
+
+            while (refHead_A != refHead_B)
+            {
+                if (refHead_A == null)
+                    refHead_A = headB;
+                else
+                    refHead_A = refHead_A.next;
+
+                if (refHead_B == null)
+                    refHead_B = headA;
+                else
+                    refHead_B = refHead_B.next;
+            }
+            return refHead_A;
+        }
+
+        static int kthlargestelement(int[] nums, int k)
+        {
+         return kthSmallest( nums,0,  nums.Length - 1, k) ;
+               
+        }
+        public static int kthSmallest(int[] arr, int l, int r, int K)
+        {
+            // If k is smaller than number
+            // of elements in array
+            if (K > 0 && K <= r - l + 1)
+            {
+                // Partition the array around last
+                // element and get position of pivot
+                // element in sorted array
+                int pos = partition(arr, l, r);
+
+                // If position is same as k
+                if (pos - l == K - 1)
+                    return arr[pos];
+
+                // If position is more, recur for
+                // left subarray
+                if (pos - l > K - 1)
+                    return kthSmallest(arr, l, pos - 1, K);
+
+                // Else recur for right subarray
+                return kthSmallest(arr, pos + 1, r,
+                                   K - pos + l - 1);
+            }
+
+            // If k is more than number
+            // of elements in array
+            return int.MaxValue;
+        }
+    
+
+        public static int partition(int[] nums, int l, int r)
+        {
+            int x = nums[r];
+            int i = l;
+            int tmp = 0;
+            for (int j = 0; j < r; j++)
+            {
+                if (x < nums[j])
+                {
+                    //tmp = nums[j];
+                    //nums[j] = nums[i];
+                    //nums[i] = tmp;
+                    i++;
+                
+                }
+            }
+            tmp = nums[i];
+            nums[i] = nums[r];
+            nums[r] = tmp;
+
+            return i;
+        
+        
+        }
+        static bool CanJump(int[] nums)
+        {
+
+            int farthest = nums[0];
+
+            //         for(int i = 0; i < nums.Length; i++)
+            //         {
+            //             if(i > farthest)
+            //                 return false;
+
+            //             farthest = Math.Max(farthest, i + nums[i]);
+            //             if(farthest > nums.Length)
+            //                 return true;
+            //         }
+
+            //         return true;
+            // dp[i] means whether index i be reached or not
+            bool[] dp = new bool[nums.Length];
+            dp[0] = true;
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    // check whether we jump from index j to index i?
+                    if (dp[j] && j + nums[j] >= i)
+                        dp[i] = true;
+                }
+            }
+
+            return dp[nums.Length - 1];
+        }
+        static int CoinChange(int[] coins, int amount)
+        {
+            /*  int[] d = new int[amount + 1];
+
+              for (int i = 1; i <= amount; i++)
+              {
+                  d[i] = int.MaxValue;
+                  for (int j = 0; j < coins.Length; j++)
+                  {
+                      if (i >= coins[j] && d[i - coins[j]] != int.MaxValue)
+                      {
+                          d[i] = Math.Min(d[i], 1 + d[i - coins[j]]);
+                      }
+                  }
+              }
+
+              return d[amount] == int.MaxValue ? -1 : d[amount];*/
+            var dp = new int[amount + 1];
+            Array.Fill(dp, amount + 1);
+            dp[0] = 0;
+            foreach (var coin in coins)
+                for (int i = coin; i <= amount; i++)
+                    dp[i] = Math.Min(dp[i], dp[i - coin] + 1);
+            return dp[amount] != amount + 1 ? dp[amount] : -1;
+
+            
+        }
+        static int CountSegments(string s)
+        {
+            int start = 0;
+            int end = 0;
+            int count = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if ((s[i] == ' '|| i==s.Length-1) && (end - start) != 0)
+                {
+                    count++;
+
+                }
+                else
+                if (i > 0 && s[i] != ' ' && s[i - 1] != ' ')
+                    end++;
+
+                else if (s[i] != ' ' && ( i >= 0 || s[i - 1] == ' '))
+                {
+                    start = i;
+                    end = i;
+                }
+
+
+
+
+
+            }
+            return count;
+        }
+
+        static string Fraction(int no, int de)
+        {
+            long n = no;
+            long d = de;
+            StringBuilder res = new StringBuilder();
+
+            res.Append((n < 0 || d < 0) ? "-" : "");
+            long init = n / d;
+            res.Append(init);
+            long rem = n % d;
+            if (rem == 0) return res.ToString();
+            res.Append(".");
+            var dic = new Dictionary<long, int>();
+            while (rem > 0)
+            { if (dic.ContainsKey(rem))
+                {
+                    res.Insert(dic[rem], '(');
+                    res.Append(')');
+                    break;
+
+
+                }
+                else
+                {
+                    dic[rem] = res.Length;
+                    rem *= 10;
+                    res.Append(rem / d);
+                    rem = rem % d;
+
+                
+                }
+            }
+
+            return res.ToString();
+
+
+        }
+
+        static int GetSum1(int a, int b)
+        {
+            while (b != 0)
+            {
+                int carry = (a & b) << 1;
+                a = a ^ b;
+                b = carry;
+            }
+
+            return a;
+        }
+        static int MajorityElement(int[] nums)
+        {
+            int count = 0;
+            int? candidate = null;
+
+            foreach (int num in nums)
+            {
+                if (count == 0) candidate = num;
+                count += (num == candidate) ? 1 : -1;
+                if (count > nums.Length / 2) return candidate.Value;
+            }
+
+            return candidate.Value;
+        }
+
+        static  int LengthOfLastWord(string s)
+        {
+
+            int f = 0;
+            int e = 0;
+            int j = 0;
+
+
+            while (j < s.Length)
+            {
+
+                
+                if ((j == 0 && s[j] != ' ') || (s[j] != ' ' && s[j - 1] == ' '))
+                {
+                    f = j;
+                    e = j;
+                }
+                else if (s[j] != ' ' && s[j - 1] != ' ')
+                {
+                    e = j;
+                }
+
+                j++;
+
+            }
+            return e - f+1;
+
+        }
+        static string AddBinary(string a, string b)
+        {
+
+            string tmp = "";
+            if (a.Length < b.Length)
+            {
+                tmp = a;
+                a = b;
+                b = tmp;
+            }
+            tmp = "";
+            for (int i = 0; i < a.Length - b.Length; i++)
+                tmp += "0";
+            b = tmp + b;
+            int carry = 0;
+            string res = "";
+            int ai = 0;
+            int bj = 0;
+
+            for(int i=a.Length-1 ; i>=0;i--)
+                {
+                if (a[i] == '1') ai = 1; else ai = 0;
+                if (b[i] == '1') bj = 1; else bj = 0;
+
+                    int t= (ai ^ bj) ^ carry;
+                   // res =Convert.ToString(t)  + res;
+                if (ai == 1 && bj == 1)
+                    carry = 1;
+                else if ((ai == 1 || bj == 1) && carry == 1)
+                    carry = 1;
+                else carry = 0;
+                }
+            if (carry == 1) res = "1" + res;
+            return res;
+        }
+        static string CountAndSay(int n)
+        {
+            /*  if (n == 1)
+                   {
+                       return "1";
+                   }
+
+                   var prevSolution = CountAndSay(n - 1);
+
+                   // Convert
+                   var prevChar = prevSolution[0];
+                   int counter = 1;
+                   var result = new StringBuilder();
+
+                   for (int i = 1; i < prevSolution.Length; i++)
+                   {
+                       if (prevSolution[i] == prevChar)
+                       {
+                           counter++;
+                       }
+                       else
+                       {
+                           result.Append(counter);
+                           result.Append(prevChar);
+                           prevChar = prevSolution[i];
+                           counter = 1;
+                       }
+                   }
+
+
+                   result.Append(counter);
+                   result.Append(prevChar);
+                   return result.ToString();*/
+            var current = "1";
+            for (var i = 1; i < n; i++)
+            {
+                current = convert(current);
+            }
+
+            return current;
+
+        }
+
+
+        static string convert(string s)
+        {
+            var current = s[0];
+            var count = 1;
+            var result = new StringBuilder();
+            for (var i = 1; i < s.Length; i++)
+            {
+                if (current != s[i])
+                {
+                    result.Append(count.ToString());
+                    result.Append(current);
+                    count = 1;
+                    current = s[i];
+                }
+                else
+                {
+                    count++;
+                }
+            }
+
+            result.Append(count.ToString());
+            result.Append(current);
+
+            return result.ToString();
+
+
+        }
+
+        static Dictionary<string, string> dict = new Dictionary<string, string>();
+        static IList<string> res = new List<string>();
+
+        static IList<string> LetterCombinations(string digits)
+        {
+            if (digits.Length < 1)
+                return res;
+
+            dict.Add("2", "abc");
+            dict.Add("3", "def");
+            dict.Add("4", "ghi");
+            dict.Add("5", "jkl");
+            dict.Add("6", "mno");
+            dict.Add("7", "pqrs");
+            dict.Add("8", "tuv");
+            dict.Add("9", "wxyz");
+
+            combi(digits, 0, string.Empty);
+            return res;
+        }
+
+        static void combi(string digits, int index, string str)
+        {
+            if (index > digits.Length - 1)
+            {
+                res.Add(str);
+                return;
+            }
+
+            for (var i = 0; i < dict[digits[index].ToString()].Length; i++)
+                combi(digits, index + 1, str + dict[digits[index].ToString()][i].ToString());
+        }
+
+        static List<string> l = new List<string>();
+        static int maxlen = 0;
+
+        static IList<string> GenerateParenthesis(int n)
+        {
+
+            //    if (n==0)
+            //      return l ;
+            maxlen = n;
+            generatepara("", 0, 0);
+            return l;
+
+
+
+        }
+
+
+        static void generatepara(string s, int open, int close)
+        {
+            if (open == close && maxlen == open)
+            {
+                l.Add(s);
+                return;
+            }
+            if (open < maxlen)
+                generatepara(s + "(", open + 1, close);
+            if (close < open)
+                generatepara(s + ")", open, close + 1);
+
+           
+
+        }
+
+        static IList<IList<int>> res1 = new List<IList<int>>();
+        static bool[] v;
+
+        static IList<IList<int>> Permute(int[] nums)
+        {
+            v = new bool[nums.Length];
+
+            DFS(nums, new List<int>());
+
+            return res1;
+        }
+
+        static void DFS(int[] nums, List<int> cur)
+        {
+            if (nums.Length == cur.Count)
+            {
+                res1.Add(new List<int>(cur));
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!v[i])
+                {
+                    v[i] = true;
+                    cur.Add(nums[i]);
+
+                    DFS(nums, cur);
+
+                    v[i] = false;
+                    cur.RemoveAt(cur.Count - 1);
+                }
+            }
+        }
+
+        static IList<IList<int>> Permute1(int[] nums)
+        {
+
+            List<IList<int>> res = new List<IList<int>>();
+            Backtracking(nums, new List<int>(), res);
+            return res;
+        }
+
+        static void Backtracking(int[] nums, List<int> list, List<IList<int>> res)
+        {
+            if (list.Count == nums.Length)
+            {
+                res.Add(new List<int>(list));
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (list.Contains(nums[i]))
+                        continue;
+                    list.Add(nums[i]);
+                    Backtracking(nums, list, res);
+                    list.RemoveAt(list.Count - 1);
+                }
+            }
+        }
+
+        static ListNode RemoveElements(ListNode head, int val)
+        {
+
+
+            if (head == null) return null;
+
+
+
+
+            ListNode h = head;
+
+            while (h != null)
+            {
+                if (h.val == val)
+                {
+                    if (h.next != null)
+                    {
+                        h.val = h.next.val;
+                        h.next = h.next.next;
+                        h = h.next;
+                    }
+                    else
+                    {
+                        h = null;
+                    }
+                }
+                else
+                {
+                    h = h.next;
+
+                }
+              
+                
+
+
+            }
+
+
+
+            return head;
+        }
+
+        static bool SearchMatrix(int[,] matrix, int target)
+        {
+            if (matrix == null || matrix.Length == 0 || matrix.GetLength(1) == 0)
+                return false;
+
+            int m = matrix.GetLength(0), n = matrix.GetLength(1);
+            int i = 0, j = n - 1;
+
+            while (i < m && j >= 0)
+            {
+                int num = matrix[i, j];
+
+                if (num == target)
+                    return true;
+                else if (num > target)
+                    j--;
+                else
+                    i++;
+            }
+
+            return false;
+        }
+        static int LengthOfLIS(int[] nums)
+        {
+
+            var dp = new int[nums.Length];
+            Array.Fill(dp, 1);
+            for (var i = 0; i < nums.Length; i++)
+            {
+                for (var j = 0; j < i; j++)
+                {
+                    if (nums[i] > nums[j])
+                    {
+                        dp[i] = Math.Max(dp[i], 1 + dp[j]);
+                    }
+                }
+            }
+
+            return dp.Max();
+        }
+        static int FindKOr(int[] nums, int k)
+        {
+            int n = nums.Length;
+            int res = nums[0];
+            if (n == k)
+            {
+                for (int i = 1; i < n; i++)
+                {
+                    res = res & nums[i];
+                }
+                return res;
+            }
+
+            if (n > 1 && k == 1)
+            {
+                for (int i = 1; i < n; i++)
+                {
+                    res = res | nums[i];
+                }
+                return res;
+            }
+
+            int count = 0;
+            res = 0;
+            for (int j = 0; j < k; j++)
+            {
+                count = 0;
+                while (count < k)
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        int r = (int)Math.Pow(2, i);
+
+                        if ((r & nums[i]) == r)
+                            count++;
+                        if (count == k - 1)
+                        {
+
+                            res = res + r;
+                            Console.WriteLine(r);
+                        }
+
+
+
+                    }
+                }
+            }
+
+
+            return res;
+        }
+            static void Main(string[] args)
+        {
+
+                int fink = FindKOr(new int[] { 7, 12, 9, 8, 9, 15 } ,4);
+            int major=majorityElement(new List<int>() { 3, 2, 3 });
+
+
+
+            int cntseg = CountSegments("hello, how are you?");
+
+            int LIS =LengthOfLIS(new int[] { 11, 2, 3, 120 });
+
+
+            int[,] matrix = new int[5, 5] { { 1, 4, 7, 11, 15 },{ 2, 5, 8, 12, 19 },{ 3, 6, 9, 16, 22 },{ 10, 13, 14, 17, 24 },{ 18, 21, 23, 26, 30 } };
+            bool resultmat = SearchMatrix(matrix, 5);
+
+            ListNode ll1 = new ListNode(1);
+            ListNode ll2 = new ListNode(3);
+            ListNode ll3 = new ListNode(2);
+            ll1.next = ll2;
+            ll2.next = ll3;
+
+            ll1 = RemoveElements(ll1, 3);
+
+
+            int[] pr = new int[] { 1, 2, 3 };
+            IList<IList<int>> permute = new List<IList<int>>();
+            permute = (IList<IList<int>>)Permute1(pr);
+
+
+
+
+            List<string> paran= (List<string>)GenerateParenthesis(3);
+
+
+            IList<int> lettercomb = new List<int>();
+        //    lettercomb= (IList<int>)LetterCombinations("23");
+
+
+
+            TreeNode treenode1 = new TreeNode(9, null, null);
+            TreeNode treenode2 = new TreeNode(15, null, null);
+            TreeNode treenode3 = new TreeNode(7, null, null);
+            TreeNode treenode4 = new TreeNode(20, treenode2, treenode3);
+            TreeNode treenode5 = new TreeNode(3, treenode1, treenode4);
+
+            int TreeDep = MaxDepth(treenode5);
+
+
+            string countandsay = CountAndSay(4);
+
+
+            string binary = AddBinary("111", "11");
+            int Length = LengthOfLastWord("  I wish I  was more capable   ");
+
+            int[] Majornum = new int[] { 2, 3, 2, 3, 2, 3 };
+            int major1 = MajorityElement(Majornum);
+
+            int sum1 = GetSum1(3, 2);
+            
+
+            string res = Fraction(10, 3);
+            
+            
+
+            int[] coins = new int[] { 1, 2, 5 };
+            int amount = CoinChange(coins, 11);
+
+
+            int[] canj = new int[] { 3, 0, 8, 2, 0, 0, 1 };
+
+            bool can=CanJump(canj);
+
+
+
+            int[] numss = new int[] { 12, 13,6, 5, 7, 4, 19, 16 };
+            int kth = kthlargestelement(numss,3);
+
+
+           ListNode l1 = new ListNode(5);
+            ListNode pren = l1;
+            for (int i = 3; i < 5; i++)
+            {
+                ListNode currNode = new ListNode(9-i);
+                pren.next = currNode;
+                pren = currNode;
+            }
+            ListNode l2 = new ListNode(9);
+            pren = l2;
+            for (int i = 1; i < 5; i++)
+            {
+                ListNode currNode = new ListNode(9 - i);
+                pren.next = currNode;
+                pren = currNode;
+            }
+
+
+            l1 = GetIntersectionNode(l1, l2);
+
+
+             l1 = OddEvenList(l1);
+
+
+
+
+            
+
+            l2 = AddTwoNumbers(l1, l2);
+
+
+
+            string pal = LongestPalindrome1("babab");
 
             int[] num1 = { 1, 2, 3, 4, 0, 0 };
             int[] num2 = {9,9,9 };
@@ -2704,14 +3578,7 @@ namespace Assignment7
 
 
 
-            TreeNode treenode1 = new TreeNode(9, null, null);
-            TreeNode treenode2 = new TreeNode(15, null, null);
-            TreeNode treenode3 = new TreeNode(7, null, null);
-            TreeNode treenode4 = new TreeNode(20, treenode2, treenode3);
-            TreeNode treenode5 = new TreeNode(3, treenode1, treenode4);
-
-            int TreeDep = MaxDepth(treenode5);
-
+            
 
 
 
